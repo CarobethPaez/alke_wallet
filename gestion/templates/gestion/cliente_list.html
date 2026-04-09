@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes - Alke Wallet</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+  <h1>Clientes registrados</h1>
+  <a href="{% url 'cliente-create' %}">+ Nuevo cliente</a>
+  <ul>
+    {% for cliente in clientes %}
+      <li>
+        {{ cliente.nombre }} — {{ cliente.email }}
+        <a href="{% url 'cliente-update' cliente.pk %}">[Editar]</a>
+        <a href="{% url 'cliente-delete' cliente.pk %}">[Eliminar]</a>
+      </li>
+    {% empty %}
+      <li>No hay clientes registrados aún.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

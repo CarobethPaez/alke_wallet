@@ -1,9 +1,6 @@
 from django.contrib import admin
 from .models import Cliente, Cuenta, Transaccion
 
-from django.contrib import admin
-from .models import Cliente, Cuenta, Transaccion
-
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'email', 'rut', 'creado_en')
